@@ -1,5 +1,6 @@
 
-import './App.css';
+import './index.css';
+import './components/fonts/StarJedi-DGRW.ttf'
 import Login from './components/Login';
 import {
   BrowserRouter,
@@ -9,6 +10,8 @@ import {
 } from "react-router-dom";
 import Fleets from './components/Fleets';
 import {useState} from "react";
+import Ships from './components/Ships';
+import Battles from './components/Battles';
 
 function App() {
   const [commander, setCommander] = useState(null)
@@ -21,6 +24,8 @@ function App() {
       <Routes>
         <Route exact path="/" element={commander ? <Navigate to="/fleets" /> : <Login login={login}/>} />
         <Route exact path="/fleets" element={<Fleets commander={commander}/>} />
+        <Route exact path="/ships" element={<Ships commander={commander}/>} />
+        <Route exact path="/battles" element={<Battles commander={commander}/>} />
        </Routes>
        </BrowserRouter>
     </div>

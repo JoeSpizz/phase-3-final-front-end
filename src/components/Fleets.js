@@ -1,5 +1,6 @@
 import React from 'react'
 import FleetCard from './FleetCard'
+import NavBar from './NavBar'
 
 function Fleets({commander}) {
     // to get fleet array
@@ -20,7 +21,8 @@ console.log(commander)
     ]}
   return (
     <div>
-        <h1> Welcome Commander {joe.name}</h1>
+        <h1 className='commanderIntro'> Welcome Commander Star Wars{commander}</h1>
+        <NavBar />
         <div className='commanderContainer'>
        <h2> Fleets You Command: {joe.fleets} </h2>
        <h3> Win percentage: not coding this yet</h3>

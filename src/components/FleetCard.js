@@ -10,6 +10,7 @@ function FleetCard({fleet}) {
         <p> future image tages with fleet.ship and fleet.ship_name</p>
         <p> future image tages with fleet.ship and fleet.ship_name</p>
         <p> future image tages with fleet.ship and fleet.ship_name</p>
+        <h3> remaining budget: fleet.budget</h3>
         </div>
     </div>
   )

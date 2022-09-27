@@ -8,8 +8,40 @@ body {
   background-color: black;
   color: yellow;
 }
+/* Font for Welcome Commander */
+@import url(https://fonts.googleapis.com/css?family=Reem+Kufi+Ink);
+/* Font for battles page */
+@import url(https://fonts.googleapis.com/css?family=Rubik+Dirt);
+
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+.NavBar{
+  display: inline-flex;
+  width: 100%;
+  background-image: linear-gradient(to right, green, red);
+  justify-content: space-around;
+}
+.NavBarLink {
+  display: inline-block;
+  width: auto;
+  padding: 12px;
+  font-family: fantasy;
+  font-size: 3em;
+  color: yellow;
+  transform: skew(-15deg);
+}
+
+.commanderIntro {
+font-family: Reem Kufi Ink;
+font-size:5em;
+}
+.battle {
+  font-family: Rubik Dirt;
+  text-align: center;
+  font-size: 10em;
+  font-weight: 500;
 }
