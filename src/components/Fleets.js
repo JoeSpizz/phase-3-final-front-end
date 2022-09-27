@@ -1,7 +1,14 @@
 import React from 'react'
+import FleetCard from './FleetCard'
 
-function Fleets() {
-    let commander = {
+function Fleets({commander}) {
+    // to get fleet array
+    // useEffect(()=>{
+    //     fetch(`localhost:9292/users/${commander.name}`)
+    // }, [])
+console.log(commander)
+
+    let joe = {
         name : "Spizzandre",
         fleets : 5,
         battles : [
@@ -13,11 +20,15 @@ function Fleets() {
     ]}
   return (
     <div>
-        <h1> Welcome Commander {commander.name}</h1>
+        <h1> Welcome Commander {joe.name}</h1>
         <div className='commanderContainer'>
-       <h2> Fleets You Command: {commander.fleets} </h2>
+       <h2> Fleets You Command: {joe.fleets} </h2>
        <h3> Win percentage: not coding this yet</h3>
         </div>
+        {/* map fleet array */}
+        <FleetCard/>
+        <FleetCard/>
+        <FleetCard/>
     </div>
   )
 }
