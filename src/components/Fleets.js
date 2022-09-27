@@ -15,7 +15,8 @@ function Fleets() {
     <div>
         <h1> Welcome Commander {commander.name}</h1>
         <div className='commanderContainer'>
-
+       <h2> Fleets You Command: {commander.fleets} </h2>
+       <h3> Win percentage: not coding this yet</h3>
         </div>
     </div>
   )
