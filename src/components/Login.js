@@ -8,8 +8,7 @@ function Login({login}) {
     const [name, setName] = useState ("")
     // const [password, setPassword]= useState("")
        // function changePass(e){
-    //     setPassword(e.target.value)
-    //     console.log(password)}
+    //     setPassword(e.target.value)}
     function handleClick(){
         setUserForm(!userForm)
         if (visibilityState ==="visible"){
@@ -23,7 +22,6 @@ function Login({login}) {
     }
     function handleSubmit(e){
         e.preventDefault()
-        console.log("submit starts")
         fetch(`http://localhost:9292/users/${name}`)
         .then(r=>r.json())
         .then(data=>login(data))
