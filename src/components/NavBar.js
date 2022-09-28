@@ -8,13 +8,13 @@ function NavBar() {
     }
   return (
     <div className="NavBar">
-    <NavLink className="NavBarLink" to ="/Fleets" exact activeStyle={activeLink}>
+    <NavLink className="NavBarLink" to ="/Fleets" exact activestyle={activeLink}>
         Fleets
     </NavLink>
-    <NavLink className="NavBarLink" to ="/ships" exact activeStyle={activeLink}>
+    <NavLink className="NavBarLink" to ="/ships" exact activestyle={activeLink}>
       All Ships
   </NavLink>
-    <NavLink className="NavBarLink" to ="/battles" exact activeStyle={activeLink}>
+    <NavLink className="NavBarLink" to ="/battles" exact activestyle={activeLink}>
       Battles
       </NavLink>
 </div>

@@ -16,7 +16,8 @@ import Battles from './components/Battles';
 function App() {
   const [commander, setCommander] = useState(null)
   function login(user){
-    setCommander(user)
+    user ? <Navigate replace to="/Fleets" /> : alert("No Commander with that name exists. Please Create a new Profile or correct your spelling")
+    setCommander(user.name)
 }
   return (
     <div className="App">

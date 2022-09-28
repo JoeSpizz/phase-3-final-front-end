@@ -4,9 +4,6 @@ import NavBar from './NavBar'
 
 function Fleets({commander}) {
     // to get fleet array
-    // useEffect(()=>{
-    //     fetch(`localhost:9292/users/${commander.name}`)
-    // }, [])
 console.log(commander)
 
     let joe = {
@@ -21,7 +18,7 @@ console.log(commander)
     ]}
   return (
     <div>
-        <h1 className='commanderIntro'> Welcome Commander Star Wars{commander}</h1>
+        <h1 className='commanderIntro'> Welcome Commander {commander}</h1>
         <NavBar />
         <div className='commanderContainer'>
        <h2> Fleets You Command: {joe.fleets} </h2>
