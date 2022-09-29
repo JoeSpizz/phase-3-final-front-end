@@ -19,7 +19,7 @@ console.log(fleet)
         <h1 className='commanderIntro'> Welcome Commander {commander.name}</h1>
         <NavBar />
         <div className='commanderContainer'>
-       <h2> Fleets You Command: 0 </h2>
+       <h2> Fleets You Command: {fleet.length} </h2>
        <h3> Win percentage: not coding this yet</h3>
        <p> In order to prove your worth to the galaxy at large it is up to you to assemble the best possible fleet or fleets. Indeed just one fleet is likely to be insufficient with the type of variety the galaxy can throw at you. Make sure to take into account Speed, Combat Power, Armor, Maneuverability, and of course your budget when selecting new starfighters. Good luck Commander {commander.name}</p>
         </div>

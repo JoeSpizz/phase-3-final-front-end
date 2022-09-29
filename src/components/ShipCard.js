@@ -1,28 +1,21 @@
 import React from 'react'
 
-function ShipCard({fleet}) {
+function ShipCard({ship}) {
    
-function addShip(e){
-    e.preventDefault()
-    console.log(e.target.name)
-    // POST ship data to Fleet DB
-}
 
   return (
     <div>
-        <form onSubmit={addShip} name={fleet.id}>
-        <h1 id={fleet.name}>{fleet.name}</h1>
+       
+        <h1 id={ship.name}>{ship.name}</h1>
     <p> image of ship.image</p>
     <ul className="shipStats">
-        <li>{fleet.cost}</li>
-        <li>{fleet.atmoSpeed}</li>
+        <li>{ship.cost}</li>
+        <li>{ship.atmoSpeed}</li>
         <li>ship.agility</li>
         <li>ship.power</li>
         <li>ship.armor</li>
         </ul>
-        {/* in the future add a .Map of fleet array to create select dropdown menu for add ship to specific fleet */}
-        <button type="submit">Add to Fleet</button>
-        </form>
+        {/* in the future add a .Map of ship array to create select dropdown menu for add ship to specific ship */}
         </div>
   )
 }
