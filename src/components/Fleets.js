@@ -7,6 +7,7 @@ function Fleets({commander}) {
     const [fleet, setFleet] = useState([])
     // to get fleet array from DB. 
     console.log(commander.id)
+    console.log(commander.name)
 useEffect(()=>{
     fetch(`http://localhost:9292/fleets/${commander.id}`)
     .then(r=>r.json())

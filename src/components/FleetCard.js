@@ -14,6 +14,15 @@ useEffect(()=>{
 function handleClick(){
 setfleetDeets(!fleetDeets)
 }
+function handleDelete(e){
+    let shipID= e.target.parentElement.firstChild.firstChild.id
+    fetch(`http://localhost:9292/fleetShips/${fleet.id}/${shipID}`,{
+        method: "DELETE",})
+        .then(r=>r.json())
+        .then(fetch(`http://localhost:9292/fleetShips/${fleet.id}`)
+        .then(r=>r.json())
+        .then(data=>setShips(data)))
+}
   return (
     <div>
         <h2>{fleet.fleet_name}</h2>
@@ -24,7 +33,7 @@ setfleetDeets(!fleetDeets)
         <h3> remaining budget: fleet.budget</h3>
         </div>
         <button type="button" name="fleetDeets" onClick={handleClick}>Fleet Details</button>
-           {fleetDeets ? <FleetShipDetails fleet={ships} key={fleet.id}/> : null}
+           {fleetDeets ? <FleetShipDetails fleet={ships} key={fleet.id} handleDelete={handleDelete}/> : null}
     </div>
   )
 }

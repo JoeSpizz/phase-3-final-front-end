@@ -3,7 +3,8 @@ import NavBar from './NavBar'
 import ShipCard from './ShipCard'
 
 function Ships({commander}) {
-    console.log(commander.id + " commander id from ships")
+    let comm = commander.id
+    console.log(comm + " commander id from ships")
  const [ships, setShips] = useState([])
     useEffect(()=>{
         fetch("http://localhost:9292/ships")
@@ -15,7 +16,7 @@ function Ships({commander}) {
     function addShip(e){
         e.preventDefault()
         let id = e.target.name
-       fetch(`http://localhost:9292/ships/${id}/${commander.id}`, {
+       fetch(`http://localhost:9292/ships/${id}/${comm}`, {
            method: "POST",
            headers: {"Content-type" : "Application/json"},
            body:JSON.stringify({id: id})
@@ -27,7 +28,7 @@ function Ships({commander}) {
     <div>
         <NavBar/>
         Ships
-       {ships.map(ship=> <form onSubmit={addShip} name={ship.id}> <ShipCard ship={ship} key={ship.id}/> <button type="submit">Add to ship</button>
+       {ships.map(ship=> <form onSubmit={addShip} name={ship.id}> <ShipCard ship={ship} key={ship.id}/> <button type="submit">Add to Fleet</button>
         </form>)}
         </div>
   )
