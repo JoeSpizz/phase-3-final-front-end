@@ -32,12 +32,14 @@ function finalizeDelete(data){
     <div className='fleetCard'>
         <h2>{fleet.fleet_name}</h2>
         <h3> Win Percentage: fleet.wins / fleet.losses</h3>
-        <div className='shipsOfTheFleet'>
+        {fleetDeets? null : <div className='shipsOfTheFleet'>
         <p> SHIPS</p>
      {ships.map(ship=><h3>{ship.name}</h3>)}
+        </div>}
         <h3> remaining budget: fleet.budget</h3>
-        </div>
+        <div id="fleetDeetsBtn">
         <button type="button" name="fleetDeets" onClick={handleClick}>Fleet Details</button>
+        </div>
            {fleetDeets ? <FleetShipDetails fleet={ships} key={fleet.id} handleDelete={handleDelete}/> : null}
     </div>
   )

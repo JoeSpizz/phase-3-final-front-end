@@ -11,8 +11,6 @@ function Ships({commander}) {
         .then(r=>r.json())
         .then(data=>setShips(data))
     }, [])
-
-
     function addShip(e){
         e.preventDefault()
         let id = e.target.name
@@ -24,12 +22,14 @@ function Ships({commander}) {
        .then(r=>r.json())
        .then(data=>alert("Added ship to your fleet"))
     }
+
+    const displayedShips= ships.filter(ship=> ship.shipClass === "Starfighter")
+    console.log(displayedShips)
   return (
     <div>
         <NavBar/>
-        Ships
       <div className="shipsContainer">
-       {ships.map(ship=> <form onSubmit={addShip} name={ship.id}> <ShipCard ship={ship} key={ship.id}/> <button type="submit">Add to Fleet</button>
+       {displayedShips.map(ship=> <form onSubmit={addShip} name={ship.id}> <ShipCard ship={ship} key={ship.id}/> <button type="submit">Add to Fleet</button>
         </form>)}
         </div>
         </div>
