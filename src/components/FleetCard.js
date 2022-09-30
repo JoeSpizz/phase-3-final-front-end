@@ -15,16 +15,21 @@ function handleClick(){
 setfleetDeets(!fleetDeets)
 }
 function handleDelete(e){
+    console.log("delete is running")
     let shipID= e.target.parentElement.firstChild.firstChild.id
     fetch(`http://localhost:9292/fleetShips/${fleet.id}/${shipID}`,{
         method: "DELETE",})
         .then(r=>r.json())
-        .then(fetch(`http://localhost:9292/fleetShips/${fleet.id}`)
-        .then(r=>r.json())
-        .then(data=>setShips(data)))
+        .then(data=>finalizeDelete(data))
+}
+function finalizeDelete(data){
+    fetch(`http://localhost:9292/fleetShips/${fleet.id}`)
+    .then(r=>r.json())
+    .then(data=>setShips(data))
+    alert("Ship removed from fleet")
 }
   return (
-    <div>
+    <div className='fleetCard'>
         <h2>{fleet.fleet_name}</h2>
         <h3> Win Percentage: fleet.wins / fleet.losses</h3>
         <div className='shipsOfTheFleet'>

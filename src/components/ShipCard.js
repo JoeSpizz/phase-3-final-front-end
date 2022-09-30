@@ -5,7 +5,7 @@ function ShipCard({ship}) {
     let num = ship.cost
     let commas = num.toLocaleString("en-US"); 
     let cost = commas.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
-   console.log(ship)
+
 
 
 

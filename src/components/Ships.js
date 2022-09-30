@@ -4,7 +4,7 @@ import ShipCard from './ShipCard'
 
 function Ships({commander}) {
     let comm = commander.id
-    console.log(comm + " commander id from ships")
+  
  const [ships, setShips] = useState([])
     useEffect(()=>{
         fetch("http://localhost:9292/ships")
@@ -22,14 +22,16 @@ function Ships({commander}) {
            body:JSON.stringify({id: id})
        })
        .then(r=>r.json())
-       .then(data=>console.log(data))
+       .then(data=>alert("Added ship to your fleet"))
     }
   return (
     <div>
         <NavBar/>
         Ships
+      <div className="shipsContainer">
        {ships.map(ship=> <form onSubmit={addShip} name={ship.id}> <ShipCard ship={ship} key={ship.id}/> <button type="submit">Add to Fleet</button>
         </form>)}
+        </div>
         </div>
   )
 }
