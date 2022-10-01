@@ -99,4 +99,5 @@ max-height: 150px;
 .fullFleetBtn{
   display: block;
   margin: auto;
+  text-align: center;
 }

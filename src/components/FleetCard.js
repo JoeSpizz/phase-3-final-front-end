@@ -15,7 +15,6 @@ function handleClick(){
 setfleetDeets(!fleetDeets)
 }
 function handleDelete(e){
-    console.log("delete is running")
     let shipID= e.target.parentElement.firstChild.firstChild.id
     fetch(`http://localhost:9292/fleetShips/${fleet.id}/${shipID}`,{
         method: "DELETE",})
@@ -40,7 +39,9 @@ function finalizeDelete(data){
         <div id="fleetDeetsBtn">
         <button type="button" name="fleetDeets" onClick={handleClick}>Fleet Details</button>
         </div>
+        <div className='fleetContainer'>
            {fleetDeets ? <FleetShipDetails fleet={ships} key={fleet.id} handleDelete={handleDelete}/> : null}
+           </div>
     </div>
   )
 }

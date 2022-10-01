@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react'
 import NavBar from './NavBar'
-import ShipCard from './ShipCard'
+import ShipShipCard from './ShipShipCard'
 
 function Ships({commander}) {
     let comm = commander.id
@@ -11,6 +11,7 @@ function Ships({commander}) {
         .then(r=>r.json())
         .then(data=>setShips(data))
     }, [])
+   
     function addShip(e){
         e.preventDefault()
         let id = e.target.name
@@ -24,13 +25,11 @@ function Ships({commander}) {
     }
 
     const displayedShips= ships.filter(ship=> ship.shipClass === "Starfighter")
-    console.log(displayedShips)
   return (
     <div>
         <NavBar/>
-      <div className="shipsContainer">
-       {displayedShips.map(ship=> <form onSubmit={addShip} name={ship.id}> <ShipCard ship={ship} key={ship.id}/> <button type="submit">Add to Fleet</button>
-        </form>)}
+      <div >
+       {displayedShips.map(ship=> <ShipShipCard ship={ship} addShip={addShip} comm={comm}/>)}
         </div>
         </div>
   )

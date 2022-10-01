@@ -10,7 +10,7 @@ function ShipCard({ship}) {
 
 
   return (
-    <div className="shipCard">
+    <div className='shipCard'>
        
         <h1 id={ship.id}>{ship.name}</h1>
    <img src={ship.url} alt={ship.name} />
