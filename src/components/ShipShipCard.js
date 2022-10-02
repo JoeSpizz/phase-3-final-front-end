@@ -13,7 +13,6 @@ function ShipShipCard({ship, comm}) {
     function handleChange(e){
        setSelect(e.target.value)
     }
-    
     function addShip(e){
         e.preventDefault()
         let id = e.target.name
@@ -38,7 +37,7 @@ function ShipShipCard({ship, comm}) {
     <option value="Select a Fleet">Select a Fleet</option>
     {formFleets.map(fleet=>  <option value={fleet} >{fleet}</option>)}
 </select>
-        <input className="fullFleetBtn" type="submit"/>
+        <button className="fullFleetBtn" type="submit">Add Ship to {select}</button>
     </form>
     </div>
   )

@@ -6,7 +6,7 @@ function ShipCard({ship}) {
     let commas = num.toLocaleString("en-US"); 
     let cost = commas.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
 
-
+    let totalPower = (parseInt(ship.atmoSpeed)/10) + ship.agility + ship.armor + ship.combatPower
 
 
   return (
@@ -20,6 +20,7 @@ function ShipCard({ship}) {
         <li>{"Agility "+ship.agility}</li>
         <li>{"Weapons Power "+ ship.combatPower}</li>
         <li>{"Armor: " + ship.armor}</li>
+        <li>{"Total Power" + totalPower}</li>
         </ul>
         {/* in the future add a .Map of ship array to create select dropdown menu for add ship to specific ship */}
         </div>

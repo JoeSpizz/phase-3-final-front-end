@@ -6,7 +6,7 @@ function FleetShipDetails({ship, handleDelete}) {
   return (
     <div className="fleetContainer" >
        <form >
-           <ShipCard ship={ship} />
+           <ShipCard ship={ship}/>
            <button type="button" name="deleteShip" onClick={handleDelete} className='fullFleetBtn'>Remove Ship From Squad</button>
            </form>
     </div>

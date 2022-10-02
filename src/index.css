@@ -44,6 +44,8 @@ font-size:5em;
   text-align: center;
   font-size: 10em;
   font-weight: 500;
+  margin-bottom: 0px;
+  margin-top: 0px;
 }
 .shipCard{
   text-align: center;
@@ -100,5 +102,22 @@ max-height: 150px;
 .fullFleetBtn{
   display: block;
   margin: auto;
+  text-align: center;
+}
+.planet{
+  text-align: center;
+  font-weight: bold;
+  border: 5px ridge rgb(24, 106, 220);
+  border-right: ridge red;
+  border-bottom: ridge red;
+  /* border-radius: 50px; */
+  padding: 1rem;
+  width: 400px;
+  height: auto;
+  display: inline-grid;
+  margin: 1rem .75rem;
+  box-shadow: 10px 10px 10px rgb(130, 37, 37);
+}
+.battleFleet{
   text-align: center;
 }

@@ -42,10 +42,20 @@ let fleetCost = ships.reduce((accumulator, object) => {
     let cost = 2000000-fleetCost
     let commas = cost.toLocaleString("en-US"); 
     let budget = commas.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
+
+let powerArray = ships.map(ship=>{
+    let totalPower = (parseInt(ship.atmoSpeed)/10) + ship.agility + ship.armor + ship.combatPower
+    return totalPower
+})
+let fleetPower = powerArray.reduce((accumulator, object) => {
+    return accumulator + object;}, 0)
+
+    
   return (
     <div className='fleetCard' id={fleet.fleet_name}>
         <h2>{fleet.fleet_name}</h2>
         <h3> Win Percentage: fleet.wins / fleet.losses</h3>
+        <h3> Total Power: {fleetPower}</h3>
         {fleetDeets? null : <div className='shipsOfTheFleet'>
         <p> SHIPS</p>
      {ships.map(ship=><h3>{ship.name}</h3>)}
