@@ -1,24 +1,45 @@
 import React, {useState, useEffect} from 'react'
 import ShipCard from './ShipCard'
 
-function ShipShipCard({ship,addShip, comm}) {
+function ShipShipCard({ship, comm}) {
     const [fleets, setFleets]= useState([])
+    const [select, setSelect] = useState("")
     useEffect(()=>{
         fetch(`http://localhost:9292/fleets/${comm}`)
         .then(r=>r.json())
         .then(data=>setFleets(data))
     }, [comm])
     let formFleets = fleets.map(fleet=> fleet.fleet_name)
-    console.log(formFleets)
+    function handleChange(e){
+       setSelect(e.target.value)
+    }
+    
+    function addShip(e){
+        e.preventDefault()
+        let id = e.target.name
+        if (select === ""){
+            alert("Please select a fleet for this ship")
+        }
+        else
+        console.log("do the fetch")
+       fetch(`http://localhost:9292/ships/${id}/${comm}`, {
+           method: "POST",
+           headers: {"Content-type" : "Application/json"},
+           body:JSON.stringify({fleet_name: select})
+       })
+       .then(r=>r.json())
+       .then(data=>alert("Added ship to your fleet"))
+    }
   return (
     <div className='shipsContainer'>
-        <form onSubmit={addShip} name={ship.id}> 
         <ShipCard ship={ship} key={ship.id}/> 
+        <form onSubmit={addShip} name={ship.id}> 
         <label for="fleets" className="fullFleetBtn">Choose a fleet:</label>
-<select name="fleets" id="fleets" form="fleetSelect" className="fullFleetBtn">
+<select name="fleets" id="fleetSelect" className="fullFleetBtn" onChange={handleChange}>
+    <option value="Select a Fleet">Select a Fleet</option>
     {formFleets.map(fleet=>  <option value={fleet} >{fleet}</option>)}
 </select>
-        <button className="fullFleetBtn" type="submit">Add to Fleet</button>
+        <input className="fullFleetBtn" type="submit"/>
     </form>
     </div>
   )

@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import FleetShipDetails from './FleetShipDetails'
 
-function FleetCard({fleet}) {
+function FleetCard({fleet, fleetDeleted}) {
     const [ships, setShips] = useState([])
     const [fleetDeets, setfleetDeets] = useState(false)
  
@@ -27,8 +27,19 @@ function finalizeDelete(data){
     .then(data=>setShips(data))
     alert("Ship removed from fleet")
 }
+
+function deleteFleet(e){
+    let fleetName = e.target.parentElement.id
+   if(window.confirm("Deleting fleet "+ fleetName + " WARNING: This cannot be undone. Are you sure you want to continue?")){
+    fetch(`http://localhost:9292/fleets/${fleetName}`,{
+        method: "DELETE",})
+        .then(r=>r.json())
+        .then(data=>fleetDeleted(data))}
+        
+}
+
   return (
-    <div className='fleetCard'>
+    <div className='fleetCard' id={fleet.fleet_name}>
         <h2>{fleet.fleet_name}</h2>
         <h3> Win Percentage: fleet.wins / fleet.losses</h3>
         {fleetDeets? null : <div className='shipsOfTheFleet'>
@@ -36,12 +47,13 @@ function finalizeDelete(data){
      {ships.map(ship=><h3>{ship.name}</h3>)}
         </div>}
         <h3> remaining budget: fleet.budget</h3>
-        <div id="fleetDeetsBtn">
+        <div className="fleetBtn">
         <button type="button" name="fleetDeets" onClick={handleClick}>Fleet Details</button>
         </div>
         <div className='fleetContainer'>
-           {fleetDeets ? <FleetShipDetails fleet={ships} key={fleet.id} handleDelete={handleDelete}/> : null}
+           {fleetDeets ? ships.map(ship=> <FleetShipDetails ship={ship} key={fleet.name} handleDelete={handleDelete}/>): null}
            </div>
+           <button className="fleetBtn" type="button" name="deleteFleet" onClick={deleteFleet}>Delete Fleet</button>
     </div>
   )
 }

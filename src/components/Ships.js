@@ -11,25 +11,13 @@ function Ships({commander}) {
         .then(r=>r.json())
         .then(data=>setShips(data))
     }, [])
-   
-    function addShip(e){
-        e.preventDefault()
-        let id = e.target.name
-       fetch(`http://localhost:9292/ships/${id}/${comm}`, {
-           method: "POST",
-           headers: {"Content-type" : "Application/json"},
-           body:JSON.stringify({id: id})
-       })
-       .then(r=>r.json())
-       .then(data=>alert("Added ship to your fleet"))
-    }
 
     const displayedShips= ships.filter(ship=> ship.shipClass === "Starfighter")
   return (
     <div>
         <NavBar/>
       <div >
-       {displayedShips.map(ship=> <ShipShipCard ship={ship} addShip={addShip} comm={comm}/>)}
+       {displayedShips.map(ship=> <ShipShipCard ship={ship} comm={comm}/>)}
         </div>
         </div>
   )

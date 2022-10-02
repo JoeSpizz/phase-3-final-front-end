@@ -85,9 +85,10 @@ font-size:5em;
   flex-wrap: wrap;
   justify-content: space-around;
 }
-#fleetDeetsBtn{
-  width:10em;
+.fleetBtn{
+  width:auto;
   margin: auto;
+  padding-bottom: 5px;
 }
 img{
 max-width: 100%;

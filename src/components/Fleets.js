@@ -1,12 +1,14 @@
 import React, {useEffect, useState} from 'react'
+import { useNavigate } from 'react-router-dom'
 import FleetCard from './FleetCard'
 import NavBar from './NavBar'
 
 
 function Fleets({commander}) {
-    const [fleet, setFleet] = useState([])
+    const [fleets, setFleet] = useState([])
     const [seeCreate, setSeeCreate] = useState(false)
     const [fleetName, setFleetName]=useState("")
+    const navigate = useNavigate()
     // to get fleet array from DB. 
   function showCreate(){
       setSeeCreate(!seeCreate)
@@ -30,29 +32,38 @@ function createNewFleet(e){
         body:JSON.stringify({fleet_name: fleetName})
     })
     .then(r=>r.json())
-    .then(data=>setFleet([...fleet], data))
+    .then(data=>finalizeCreate(data))
+}
+function finalizeCreate(data){
+    let newFleets = [[...fleets], data]
+    setFleet(newFleets)
     alert("Fleet created")
+    navigate("/ships")
 }
 
+function fleetDeleted(data){
+    let postDelete = fleets.filter(fleet=> fleet.fleet_name !== data.fleet_name)
+    setFleet(postDelete)
+
+}
   
   return (
     <div>
         <h1 className='commanderIntro'> Welcome Commander {commander.name}</h1>
         <NavBar />
         <div className='commanderContainer'>
-       <h2> Fleets You Command: {fleet.length} </h2>
+       <h2> Fleets You Command: {fleets.length} </h2>
        <h3> Win percentage: not coding this yet</h3>
        <p> In order to prove your worth to the galaxy at large it is up to you to assemble the best possible fleet or fleets. Indeed just one fleet is likely to be insufficient with the type of variety the galaxy can throw at you. Make sure to take into account Speed, Combat Power, Armor, Maneuverability, and of course your budget when selecting new starfighters. Good luck Commander {commander.name}</p>
-       <button type="button" onClick={showCreate}>Create New Fleet</button>
        {seeCreate ?  <form onSubmit={createNewFleet}>
    <label for="createFleet"><b>Name your fleet, Commander </b></label>
        <input type="text" placeholder='Fleet Name' required onChange={handleChange}></input>
        <br></br>
         <input type="submit" value="Create Fleet"/>
- </form> : null}
+ </form> :   <button type="button" onClick={showCreate}>Create New Fleet</button>}
         </div>
         {/* map fleet array */}
-     {fleet.map(fleet=> <FleetCard fleet={fleet} key={fleet.id}/>)}
+     {fleets.map(fleet=> <FleetCard fleet={fleet} key={fleet.id} fleetDeleted={fleetDeleted}/>)}
     </div>
   )
 }
