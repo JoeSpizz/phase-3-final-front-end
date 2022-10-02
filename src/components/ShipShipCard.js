@@ -21,7 +21,6 @@ function ShipShipCard({ship, comm}) {
             alert("Please select a fleet for this ship")
         }
         else
-        console.log("do the fetch")
        fetch(`http://localhost:9292/ships/${id}/${comm}`, {
            method: "POST",
            headers: {"Content-type" : "Application/json"},

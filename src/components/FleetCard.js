@@ -37,7 +37,11 @@ function deleteFleet(e){
         .then(data=>fleetDeleted(data))}
         
 }
-
+let fleetCost = ships.reduce((accumulator, object) => {
+    return accumulator + parseInt(object.cost);}, 0)
+    let cost = 2000000-fleetCost
+    let commas = cost.toLocaleString("en-US"); 
+    let budget = commas.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
   return (
     <div className='fleetCard' id={fleet.fleet_name}>
         <h2>{fleet.fleet_name}</h2>
@@ -46,7 +50,7 @@ function deleteFleet(e){
         <p> SHIPS</p>
      {ships.map(ship=><h3>{ship.name}</h3>)}
         </div>}
-        <h3> remaining budget: fleet.budget</h3>
+        <h3>Funds Remaining: {budget} Credits</h3>
         <div className="fleetBtn">
         <button type="button" name="fleetDeets" onClick={handleClick}>Fleet Details</button>
         </div>
