@@ -4,6 +4,7 @@ import ShipCard from './ShipCard'
 function ShipShipCard({ship, comm}) {
     const [fleets, setFleets]= useState([])
     const [select, setSelect] = useState("")
+   
     useEffect(()=>{
         fetch(`http://localhost:9292/fleets/${comm}`)
         .then(r=>r.json())
@@ -26,7 +27,7 @@ function ShipShipCard({ship, comm}) {
            body:JSON.stringify({fleet_name: select})
        })
        .then(r=>r.json())
-       .then(data=>alert("Added ship to your fleet"))
+       .then(data=>alert(data))
     }
   return (
     <div className='shipsContainer'>

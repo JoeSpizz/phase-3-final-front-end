@@ -26,7 +26,7 @@ function App() {
       <BrowserRouter>
       <Routes>
         <Route exact path="/" element={commander ? <Navigate to="/fleets" /> : <Login login={login}/>} />
-        <Route exact path="/fleets" element={<Fleets commander={commander} />} />
+        <Route exact path="/fleets" element={<Fleets commander={commander}  />} />
         <Route exact path="/ships" element={<Ships commander={commander} />} />
         <Route exact path="/battles" element={<Battles commander={commander}/>} />
        </Routes>

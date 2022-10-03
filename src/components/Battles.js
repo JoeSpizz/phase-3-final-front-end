@@ -34,6 +34,8 @@ function battle(e){
     .then(r=>r.json())
     .then(data=>console.log(data))
 }
+
+
   return (
     <div>
         <NavBar/>

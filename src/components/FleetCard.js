@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import FleetShipDetails from './FleetShipDetails'
 
-function FleetCard({fleet, fleetDeleted}) {
+function FleetCard({fleet, fleetDeleted, makeBudget}) {
     const [ships, setShips] = useState([])
     const [fleetDeets, setfleetDeets] = useState(false)
  
@@ -39,9 +39,10 @@ function deleteFleet(e){
 }
 let fleetCost = ships.reduce((accumulator, object) => {
     return accumulator + parseInt(object.cost);}, 0)
-    let cost = 2000000-fleetCost
+    let cost = 1500000-fleetCost
     let commas = cost.toLocaleString("en-US"); 
     let budget = commas.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
+   
 
 let powerArray = ships.map(ship=>{
     let totalPower = (parseInt(ship.atmoSpeed)/10) + ship.agility + ship.armor + ship.combatPower
