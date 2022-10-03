@@ -50,11 +50,11 @@ let powerArray = ships.map(ship=>{
 let fleetPower = powerArray.reduce((accumulator, object) => {
     return accumulator + object;}, 0)
 
-    
+    let winPercentage = (fleet.wins / (fleet.wins+fleet.losses))*100
   return (
     <div className='fleetCard' id={fleet.fleet_name}>
         <h2>{fleet.fleet_name}</h2>
-        <h3> Win Percentage: fleet.wins / fleet.losses</h3>
+        <h3> Win Percentage: {winPercentage? `${winPercentage}%`: "No Battles Yet"}</h3>
         <h3> Total Power: {fleetPower}</h3>
         {fleetDeets? null : <div className='shipsOfTheFleet'>
         <p> SHIPS</p>

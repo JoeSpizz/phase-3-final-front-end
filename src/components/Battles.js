@@ -30,6 +30,9 @@ function Battles({commander}) {
 function battle(e){
     e.preventDefault()
     console.log(fleetChoice + " vs " + enemyFleetChoice + " on planet " + e.target.value)
+    fetch(`http://localhost:9292/battle/${fleetChoice}/${enemyFleetChoice}/${e.target.value}`)
+    .then(r=>r.json())
+    .then(data=>console.log(data))
 }
   return (
     <div>

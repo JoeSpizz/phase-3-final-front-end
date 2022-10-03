@@ -46,6 +46,11 @@ function fleetDeleted(data){
     setFleet(postDelete)
 
 }
+
+ let wins = fleets.reduce((a, fleet)=> {
+        return a + fleet.wins}, 0)
+let losses = fleets.reduce((a, fleet)=>{
+            return a + fleet.losses}, 0)
   
   return (
     <div>
@@ -53,7 +58,7 @@ function fleetDeleted(data){
         <NavBar />
         <div className='commanderContainer'>
        <h2> Fleets You Command: {fleets.length} </h2>
-       <h3> Win percentage: not coding this yet</h3>
+       <h3> Win percentage: {(wins / (wins+losses))*100}%</h3>
        <p> In order to prove your worth to the galaxy at large it is up to you to assemble the best possible fleet or fleets. Indeed just one fleet is likely to be insufficient with the type of variety the galaxy can throw at you. Make sure to take into account Speed, Combat Power, Armor, Maneuverability, and of course your budget when selecting new starfighters. Good luck Commander {commander.name}</p>
        {seeCreate ?  <form onSubmit={createNewFleet}>
    <label for="createFleet"><b>Name your fleet, Commander </b></label>
