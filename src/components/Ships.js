@@ -19,6 +19,7 @@ function Ships({commander}) {
       <div >
        {displayedShips.map(ship=> <ShipShipCard ship={ship} comm={comm}/>)}
         </div>
+        <NavBar />
         </div>
   )
 }

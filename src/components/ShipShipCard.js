@@ -32,13 +32,13 @@ function ShipShipCard({ship, comm}) {
   return (
     <div className='shipsContainer'>
         <ShipCard ship={ship} key={ship.id}/> 
-        <form onSubmit={addShip} name={ship.id}> 
-        <label for="fleets" className="fullFleetBtn">Choose a fleet:</label>
-<select name="fleets" id="fleetSelect" className="fullFleetBtn" onChange={handleChange}>
+        <form onSubmit={addShip} name={ship.id} className={"addShipForm"}> 
+        <label for="fleets" className="shipFormBtn"></label>
+<select name="fleets" id="fleetSelect" className="shipFormBtn" onChange={handleChange}>
     <option value="Select a Fleet">Select a Fleet</option>
     {formFleets.map(fleet=>  <option value={fleet} >{fleet}</option>)}
 </select>
-        <button className="fullFleetBtn" type="submit">Add Ship to {select}</button>
+        <button className="shipFormBtn" type="submit">Add {ship.name} to {select}</button>
     </form>
     </div>
   )

@@ -12,7 +12,7 @@ function ShipCard({ship}) {
   return (
     <div className='shipCard'>
        
-        <h1 id={ship.id}>{ship.name}</h1>
+        <h2 id={ship.id} className={"shipName"}>{ship.name}</h2>
    <img src={ship.url} alt={ship.name} />
     <ul className="shipStats">
         <li>{"Credits: "+cost}</li>
@@ -22,8 +22,8 @@ function ShipCard({ship}) {
         <li>{"Armor: " + ship.armor}</li>
         <li>{"Total Power" + totalPower}</li>
         </ul>
-        {/* in the future add a .Map of ship array to create select dropdown menu for add ship to specific ship */}
-        </div>
+        <br></br>
+         </div>
   )
 }
 

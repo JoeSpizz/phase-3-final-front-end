@@ -5,40 +5,173 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: black;
-  color: yellow;
+  color: white;
+  background-color:black;
+background-image:
+radial-gradient(white, rgba(255,255,255,.2) 2px, transparent 40px),
+radial-gradient(white, rgba(255,255,255,.15) 1px, transparent 30px),
+radial-gradient(white, rgba(255,255,255,.1) 2px, transparent 40px),
+radial-gradient(rgba(255,255,255,.4), rgba(255,255,255,.1) 2px, transparent 30px);
+background-size: 550px 550px, 350px 350px, 250px 250px, 150px 150px;
+background-position: 0 0, 40px 60px, 130px 270px, 70px 100px;
 }
 /* Font for Welcome Commander */
 @import url(https://fonts.googleapis.com/css?family=Reem+Kufi+Ink);
 /* Font for battles page */
 @import url(https://fonts.googleapis.com/css?family=Rubik+Dirt);
 
-
+@font-face {font-family: "Star Jedi"; src: url("//db.onlinewebfonts.com/t/0c724f6aa457310440cf8949c615cbd7.eot"); src: url("//db.onlinewebfonts.com/t/0c724f6aa457310440cf8949c615cbd7.eot?#iefix") format("embedded-opentype"), url("//db.onlinewebfonts.com/t/0c724f6aa457310440cf8949c615cbd7.woff2") format("woff2"), url("//db.onlinewebfonts.com/t/0c724f6aa457310440cf8949c615cbd7.woff") format("woff"), url("//db.onlinewebfonts.com/t/0c724f6aa457310440cf8949c615cbd7.ttf") format("truetype"), url("//db.onlinewebfonts.com/t/0c724f6aa457310440cf8949c615cbd7.svg#Star Jedi") format("svg"); } 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
 
+#loginPage{
+  text-align: center;
+}
+#welcomeTitle{
+  font-size: 65px;
+  font-family: 'Star Jedi';
+}
+img{
+  width: 50%;
+  }
+
+.userLogin{
+  font-family: 'Star Jedi';
+  letter-spacing: 3px;
+  font-size: 20px;
+}
+
 .NavBar{
   display: inline-flex;
   width: 100%;
-  background-image: linear-gradient(to right, green, red);
+  background-image: linear-gradient(to right, #2FF923, red);
   justify-content: space-around;
 }
 .NavBarLink {
   display: inline-block;
   width: auto;
   padding: 12px;
-  font-family: fantasy;
+  font-family: 'Star Jedi';
   font-size: 3em;
-  color: yellow;
+  color: black;
   transform: skew(-15deg);
 }
 
 .commanderIntro {
-font-family: Reem Kufi Ink;
-font-size:5em;
+  font-family: 'Star Jedi';
+font-size:4em;
+letter-spacing: 1px;
+text-align: center;
 }
+.commanderContainer{
+  text-align: center;
+  width: 600px;
+  margin: auto;
+}
+.commanderContainer h2 {
+  font-family: 'Star Jedi';
+  letter-spacing: 2px;
+}
+
+.shipCard{
+  text-align: center;
+  font-weight: bold;
+  border: 5px inset white;
+  border-radius: 50px;
+  padding: 1rem;
+  width: 15rem;
+  height: auto;
+  display: inline-grid;
+  margin: 1rem .75rem;
+  box-shadow: 10px 10px 10px rgb(130, 37, 37);
+  color:white;
+}
+.shipCard img{
+  margin: auto;
+}
+.shipName{
+  font-size: 35px;
+}
+.shipsContainer{
+  display: inline-block;
+  flex-wrap: wrap;
+  vertical-align: top;
+}
+.shipFormBtn{
+  display: block;
+  margin: auto;
+  text-align: center;
+}
+.fleetCardContainer{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.fleetCard{
+  text-align: center;
+  font-weight: bold;
+  border: 5px ridge #2FF923;
+  border-right: ridge red;
+  border-bottom: ridge red;
+  border-radius: 5px;
+  width: auto;
+  height: auto;
+  display: inline-grid;
+  margin: auto;
+  margin-bottom: 15px;
+  box-shadow:
+  inset 50px 0 140px #2FF923, 
+  inset -70px 0 160px red;
+  color: white
+}
+.fleetCard h1{
+  font-family: 'Star Jedi';
+  margin-bottom: -10px;
+}
+.fleetCard h2{
+  font-family: 'Fantasy';
+  margin-bottom: -5px;
+}
+.fleetCard h3{
+  font-family: 'Reem Kufi Ink';
+  margin-bottom: -2px;
+}
+.deleteShipBtn{
+  position: relative;
+}
+.shipsOfTheFleet{
+ column-count: 3;
+ column-fill: balance;
+ margin-bottom: 40px;
+}
+.fleetBtn{
+  width:auto;
+  height: auto;
+  margin: auto;
+  margin-bottom: 5px;
+}
+
+.fullFleetBtn{
+  margin: auto;
+  text-align: center;
+}
+.battleBtn{
+  width: auto;
+  margin: auto;
+  height: auto;
+  font-weight:1000;
+  font-size: large;
+}
+.deleteFleet{
+  width: auto;
+  margin: auto;
+  background-color: red;
+  color: white;
+  margin-top: 10px;
+}
+
 .battle {
   font-family: Rubik Dirt;
   text-align: center;
@@ -47,77 +180,73 @@ font-size:5em;
   margin-bottom: 0px;
   margin-top: 0px;
 }
-.shipCard{
-  text-align: center;
-  font-weight: bold;
-  border: 5px inset rgb(24, 220, 24);
-  border-right: inset red;
-  border-bottom: inset red;
-  border-radius: 50px;
-  padding: 1rem;
-  width: 15rem;
-  height: auto;
-  display: inline-grid;
-  margin: 1rem .75rem;
-  box-shadow: 10px 10px 10px rgb(130, 37, 37);
-  color:yellow
-}
-.shipsContainer{
-  display: inline-flex;
+.planets{
+  display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
-}
-
-.fleetCard{
-  text-align: center;
-  font-weight: bold;
-  border: 5px ridge rgb(24, 106, 220);
-  border-right: ridge red;
-  border-bottom: ridge red;
-  /* border-radius: 50px; */
-  padding: 1rem;
-  width: auto;
-  height: auto;
-  display: inline-grid;
-  margin: 1rem .75rem;
-  box-shadow: 10px 10px 10px rgb(130, 37, 37);
-}
-.fleetContainer{
-  display: inline-flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-}
-.fleetBtn{
-  width:auto;
-  margin: auto;
-  padding-bottom: 5px;
-}
-img{
-max-width: 100%;
-max-height: 150px;
-  background-color: black;
-  margin: auto;
-
-}
-.fullFleetBtn{
-  display: block;
-  margin: auto;
-  text-align: center;
+  justify-content: center;
 }
 .planet{
   text-align: center;
   font-weight: bold;
-  border: 5px ridge rgb(24, 106, 220);
-  border-right: ridge red;
-  border-bottom: ridge red;
-  /* border-radius: 50px; */
   padding: 1rem;
   width: 400px;
   height: auto;
-  display: inline-grid;
+  display: inline-block;
+  flex-wrap: wrap;
   margin: 1rem .75rem;
-  box-shadow: 10px 10px 10px rgb(130, 37, 37);
+  border: 5px ridge blue;
+  border-radius:50%;
+  border-right: ridge #9aa7e1;
+  border-bottom: ridge #9aa7e1;
+  box-shadow: 10px 10px 10px #9aa7e1;
 }
+.planet h3{
+  width: 350px;
+  margin: auto;
+}
+.planet img{
+  border-radius: 17px;
+}
+.planet:nth-child(2){
+  border: 5px ridge #f1c61a;
+  border-right: ridge rgb(114, 78, 62);
+  border-bottom: ridge rgb(114, 78, 62);
+  box-shadow: 10px 10px 10px rgb(114, 78, 62);
+}
+.planet:nth-child(3){
+  border: 5px ridge orange;
+  border-right: ridge rgb(239, 11, 11);
+  border-bottom: ridge rgb(239, 11, 11);
+  box-shadow: 10px 10px 10px rgb(239, 11, 11);
+}
+.planet:nth-child(4){
+  border: 5px ridge rgb(42, 128, 226);
+  border-right: ridge #edd237;
+  border-bottom: ridge #edd237;
+  box-shadow: 10px 10px 10px #edd237;
+}
+
 .battleFleet{
   text-align: center;
+}
+.resultCard{
+  position: fixed;
+  z-index: 1;
+  top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+  background-image: linear-gradient(to right, #2FF923, red);
+  text-align: center;
+  display: grid;
+  font-family: 'Star Jedi';
+  color: black;
+}
+.resultCard iframe{
+  margin: auto;
+  margin-bottom: 5px;
+}
+.resultCard button {
+  width: 100px;
+  margin: auto;
+  font-family: 'Star Jedi';
 }

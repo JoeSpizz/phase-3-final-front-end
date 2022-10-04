@@ -15,10 +15,14 @@ function handleChange (e){
             })
         })
         .then(r=>r.json())
-        .then(data=>alert(`Commander ${data.name} created. Please log in`))
-        .catch(alert("Commander already exists. Please try a different name")); 
+        .then(data=>welcomeCommander(data)) 
     }
-
+function welcomeCommander(data){
+    if (data !== "exists")
+    alert(`Commander ${data.name} created. Please log in`)
+    else
+    alert("Commander already exists, please pick another name")
+}
   return (
     <div>
         <form onSubmit={handleSubmit}>

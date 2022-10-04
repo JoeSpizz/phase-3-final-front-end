@@ -4,6 +4,7 @@ import FleetCard from './FleetCard'
 import NavBar from './NavBar'
 
 
+
 function Fleets({commander}) {
     const [fleets, setFleet] = useState([])
     const [seeCreate, setSeeCreate] = useState(false)
@@ -37,7 +38,7 @@ function createNewFleet(e){
 function finalizeCreate(data){
     let newFleets = [[...fleets], data]
     setFleet(newFleets)
-    alert("Fleet created")
+    alert("Fleet created, time to pick some ships. You have a budget of 1.5 Million Credits")
     navigate("/ships")
 }
 
@@ -58,8 +59,8 @@ let losses = fleets.reduce((a, fleet)=>{
         <NavBar />
         <div className='commanderContainer'>
        <h2> Fleets You Command: {fleets.length} </h2>
-       <h3> Win percentage: {(wins / (wins+losses))*100}%</h3>
-       <p> In order to prove your worth to the galaxy at large it is up to you to assemble the best possible fleet or fleets. Indeed just one fleet is likely to be insufficient with the type of variety the galaxy can throw at you. Make sure to take into account Speed, Combat Power, Armor, Maneuverability, and of course your budget when selecting new starfighters. Good luck Commander {commander.name}</p>
+       {wins || losses >0 ? <h2> Win percentage: {((wins / (wins+losses))*100).toFixed(2)} </h2> : null}
+       <p> In order to prove your worth to the galaxy you must assemble the best possible fleet(or fleets). Indeed just one fleet is likely to be insufficient with the type of variety the galaxy can muster. Make sure to take into account Combat Power, Armor, Maneuverability, speed, and of course your budget when selecting new starfighters. You start with 1.5 Million Credits. <br></br>Good luck Commander {commander.name}</p>
        {seeCreate ?  <form onSubmit={createNewFleet}>
    <label for="createFleet"><b>Name your fleet, Commander </b></label>
        <input type="text" placeholder='Fleet Name' required onChange={handleChange}></input>
@@ -67,8 +68,10 @@ let losses = fleets.reduce((a, fleet)=>{
         <input type="submit" value="Create Fleet"/>
  </form> :   <button type="button" onClick={showCreate}>Create New Fleet</button>}
         </div>
-        {/* map fleet array */}
+       <div className="fleetCardContainer">
      {fleets.map(fleet=> <FleetCard fleet={fleet} key={fleet.id} fleetDeleted={fleetDeleted}/>)}
+     </div>
+     <NavBar />
     </div>
   )
 }

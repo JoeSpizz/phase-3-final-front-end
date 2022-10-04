@@ -1,9 +1,11 @@
 import React, {useState, useEffect} from 'react'
 import FleetShipDetails from './FleetShipDetails'
+import { useNavigate } from 'react-router-dom'
 
 function FleetCard({fleet, fleetDeleted, makeBudget}) {
     const [ships, setShips] = useState([])
     const [fleetDeets, setfleetDeets] = useState(false)
+    let navigate= useNavigate()
  
 useEffect(()=>{
     fetch(`http://localhost:9292/fleetShips/${fleet.id}`)
@@ -35,7 +37,9 @@ function deleteFleet(e){
         method: "DELETE",})
         .then(r=>r.json())
         .then(data=>fleetDeleted(data))}
-        
+}
+function toBattle(){
+    navigate('/battles')
 }
 let fleetCost = ships.reduce((accumulator, object) => {
     return accumulator + parseInt(object.cost);}, 0)
@@ -54,21 +58,25 @@ let fleetPower = powerArray.reduce((accumulator, object) => {
     let winPercentage = (fleet.wins / (fleet.wins+fleet.losses))*100
   return (
     <div className='fleetCard' id={fleet.fleet_name}>
-        <h2>{fleet.fleet_name}</h2>
-        <h3> Win Percentage: {winPercentage? `${winPercentage}%`: "No Battles Yet"}</h3>
-        <h3> Total Power: {fleetPower}</h3>
+        <h1>{fleet.fleet_name}</h1>
+        <h2> Win Percentage: {winPercentage? `${winPercentage.toFixed(2)}%`: "No Battles Yet"}</h2>
+        <h2>{`${fleet.wins+fleet.losses} battles completed`}</h2>
+        <h2> Total Power: {fleetPower}</h2>
+        <h3>Ships</h3>
+        <button type="button" className="fleetBtn" onClick={handleClick}>Fleet Details</button>
         {fleetDeets? null : <div className='shipsOfTheFleet'>
-        <p> SHIPS</p>
      {ships.map(ship=><h3>{ship.name}</h3>)}
         </div>}
         <h3>Funds Remaining: {budget} Credits</h3>
         <div className="fleetBtn">
-        <button type="button" name="fleetDeets" onClick={handleClick}>Fleet Details</button>
         </div>
-        <div className='fleetContainer'>
+        <div className='shipsOfTheFleet'>
            {fleetDeets ? ships.map(ship=> <FleetShipDetails ship={ship} key={fleet.name} handleDelete={handleDelete}/>): null}
            </div>
-           <button className="fleetBtn" type="button" name="deleteFleet" onClick={deleteFleet}>Delete Fleet</button>
+           <br></br>
+           <button className='battleBtn' type='button' name="toBattle" onClick={toBattle}>TO BATTLE!</button>
+           <br></br>
+           <button className="deleteFleet" type="button" name="deleteFleet" onClick={deleteFleet}>Delete Fleet</button>
     </div>
   )
 }
