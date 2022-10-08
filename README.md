@@ -2,9 +2,6 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
-
-In the project directory, you can run:
 
 ### `npm start`
 
@@ -14,57 +11,18 @@ Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 The page will reload when you make changes.\
 You may also see any lint errors in the console.
 
-### `npm test`
+The Star Wars Battler- React Front-end
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+The goal of the SW Battler App is simple:
+1)A user creates a "Commander" name and logs in with it.
+2) The user creates a Fleet by designating a name.
+3) The user is immediately brought to the "Ships" page wherein they can choose which fleet (they can have multiple fleets) they'd like to add which ship to. 
+4) After they have exhausted their budget of 1.5 million "credits" the can review the fleet details back on their 'Fleets' page.
+5) When a user is happy with their fleet, it's time to Battle. Head to the Battle page.
+6) On the battle page a user selects the fleet they want to use from their own list of fleets, chooses any fleet from any other user to battle against. And then picks a planet. The planet will augment their combat power based on the 'local envrionment'.
+7) A win or loss is presented with a banner and GIF and the wins/losses and percentages are incrememnted for that fleet and the commander as a whole.
 
-### `npm run build`
+We utlizie React to make keeping components organized and simple. The endpoints for our fetch requests are designed to connect with a Ruby Sinatra built back-end. Found at "https://github.com/JoeSpizz/phase-3-sinatra-react-project".
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+This application, including styling, was built almost entirely from scratch with very few credits for pre-written code. The Font 'Star Jedi' was created by Boba Fonts to mimic the Star Wars title font. 
+The Ship raw information was pulled from https://swapi.dev/ The Star Wars API. This information was sadly bereft of images, and combat statistics. Images were mostly found from https://starwars.fandom.com/wiki/Main_Page with combat data being made up by me, and then tweaked to match up with costs so no ship would be over-powered.

@@ -20,7 +20,7 @@ function ShipCard({ship}) {
         <li>{"Agility "+ship.agility}</li>
         <li>{"Weapons Power "+ ship.combatPower}</li>
         <li>{"Armor: " + ship.armor}</li>
-        <li>{"Total Power" + totalPower}</li>
+        <li >{"Total Power: " + totalPower}</li>
         </ul>
         <br></br>
          </div>
