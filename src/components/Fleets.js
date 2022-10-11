@@ -69,7 +69,7 @@ let losses = fleets.reduce((a, fleet)=>{
  </form> :   <button type="button" onClick={showCreate}>Create New Fleet</button>}
         </div>
        <div className="fleetCardContainer">
-     {fleets.map(fleet=> <FleetCard fleet={fleet} key={fleet.id} fleetDeleted={fleetDeleted}/>)}
+     {fleets.map(fleet=> <FleetCard fleet={fleet} key={fleet.id} fleetDeleted={fleetDeleted} commander={commander}/>)}
      </div>
      <NavBar />
     </div>

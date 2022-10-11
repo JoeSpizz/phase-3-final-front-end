@@ -250,3 +250,8 @@ transform: translate(-50%, -50%);
   margin: auto;
   font-family: 'Star Jedi';
 }
+.editBtn {
+  width: 125px;
+  margin: auto;
+  margin-top: 15px;
+}
