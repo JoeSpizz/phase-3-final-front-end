@@ -22,7 +22,9 @@ The goal of the SW Battler App is simple:
 6) On the battle page a user selects the fleet they want to use from their own list of fleets, chooses any fleet from any other user to battle against. And then picks a planet. The planet will augment their combat power based on the 'local envrionment'.
 7) A win or loss is presented with a banner and GIF and the wins/losses and percentages are incrememnted for that fleet and the commander as a whole.
 
-We utlizie React to make keeping components organized and simple. The endpoints for our fetch requests are designed to connect with a Ruby Sinatra built back-end. Found at "https://github.com/JoeSpizz/phase-3-sinatra-react-project".
+We utlizie React to make keeping components organized and simple. The endpoints for our fetch requests are designed to connect with a Ruby Sinatra built back-end. Found at [Star Wars Battler back end](https://github.com/JoeSpizz/phase-3-sinatra-react-project). 
+
+Once you've forked and cloned this Front end you can get it started quite simply by running npm install, followed by npm start. The back-end will of course have to be set up and the proper data seeded for things to work properly, but the that's it for the initial install itself. You may have to tweak the fetch requests depending on your local environment setup but it should be good to go by default. 
 
 This application, including styling, was built almost entirely from scratch with very few credits for pre-written code. The Font 'Star Jedi' was created by Boba Fonts to mimic the Star Wars title font. 
-The Ship raw information was pulled from https://swapi.dev/ The Star Wars API. This information was sadly bereft of images, and combat statistics. Images were mostly found from https://starwars.fandom.com/wiki/Main_Page with combat data being made up by me, and then tweaked to match up with costs so no ship would be over-powered.
+The Ship raw information was pulled from [The Star Wars API](https://swapi.dev/). This information was sadly bereft of images, and combat statistics. Images were mostly found from https://starwars.fandom.com/wiki/Main_Page with combat data being made up by me, and then tweaked to match up with costs so no ship would be over-powered. Please see the back-end read me for more details.

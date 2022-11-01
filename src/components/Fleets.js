@@ -45,7 +45,6 @@ function finalizeCreate(data){
 function fleetDeleted(data){
     let postDelete = fleets.filter(fleet=> fleet.fleet_name !== data.fleet_name)
     setFleet(postDelete)
-
 }
 
  let wins = fleets.reduce((a, fleet)=> {

@@ -25,10 +25,9 @@ function handleDelete(e){
         .then(data=>finalizeDelete(data))
 }
 function finalizeDelete(data){
-    fetch(`http://localhost:9292/fleetShips/${fleet.id}`)
-    .then(r=>r.json())
-    .then(data=>setShips(data))
-    alert("Ship removed from fleet")
+    let postDelete = ships.filter(ship=> ship.name !== data.name)
+    console.log(postDelete)
+    setShips(postDelete)
 }
 
 function deleteFleet(e){
@@ -81,8 +80,19 @@ let fleetPower = powerArray.reduce((accumulator, object) => {
     let winPercentage = (fleet.wins / (fleet.wins+fleet.losses))*100
   return (
     <div className='fleetCard' id={fleet.fleet_name}>
-       {editFleet? <div><form><button type="input" onClick={editing}>X</button><input type="text" placeholder='New Fleet Name' onChange={creatingNewName}></input><button type="submit" className='editBtn' onClick={newFleetName}>Submit</button></form></div>: <div><h1>{newName}</h1> 
-        <button type="button" className='editBtn' onClick={editing}>Edit Fleet Name</button></div>}
+       {editFleet ? <div>
+           <form>
+               <button type="input" onClick={editing}>X</button>
+               <input type="text" placeholder='New Fleet Name' onChange={creatingNewName}></input>
+               <button type="submit" className='editBtn' onClick={newFleetName}>Submit</button>
+               </form>
+               </div>
+               : 
+               <div>
+                   <h1>{newName}</h1> 
+                    <button type="button" className='editBtn' onClick={editing}>Edit Fleet Name</button>
+                    </div>
+                    }
         <h2> Win Percentage: {winPercentage? `${winPercentage.toFixed(2)}%`: "No Battles Yet"}</h2>
         <h2>{`${fleet.wins+fleet.losses} battles completed`}</h2>
         <h2> Total Power: {fleetPower}</h2>
